@@ -1,12 +1,5 @@
 -module(pingpong).
--export([start/0, ping/2, pong/0, grumble/2]).
-
-grumble(N, Pong_PID) when N rem 2 == 0 ->
-    Pong_PID ! {grumble, "Bob"};
-
-grumble(N, Pong_PID) ->
-    %io:format("Not sending grumble: ~w~n", [N]).
-    noop.
+-export([start/0, ping/2, pong/0]).
 
 ping(0, Pong_PID) ->
     Pong_PID ! finished,
